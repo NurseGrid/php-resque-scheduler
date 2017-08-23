@@ -9,6 +9,9 @@
 			"email": "chris@bgigcommerce.com"
 		}
 	],
+	"bin": [
+		"bin/resque"
+	],
 	"autoload": {
 		"psr-0": {
 			"ResqueScheduler": "lib/"
