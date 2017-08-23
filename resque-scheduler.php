@@ -1,13 +1,30 @@
 <?php
 
-// Look for an environment variable with 
-$RESQUE_PHP = getenv('RESQUE_PHP');
-if (!empty($RESQUE_PHP)) {
-	require_once $RESQUE_PHP;
+#!/usr/bin/env php
+<?php
+
+// Find and initialize Composer
+$files = array(
+    __DIR__ . '/../../vendor/autoload.php',
+    __DIR__ . '/../../../autoload.php',
+    __DIR__ . '/../../../../autoload.php',
+    __DIR__ . '/../vendor/autoload.php',
+);
+
+$found = false;
+foreach ($files as $file) {
+    if (file_exists($file)) {
+        require_once $file;
+        break;
+    }
 }
-// Otherwise, if we have no Resque then assume it is in the include path
-else if (!class_exists('Resque')) {
-	require_once 'Resque/Resque.php';
+
+if (!class_exists('Composer\Autoload\ClassLoader', false)) {
+    die(
+        'You need to set up the project dependencies using the following commands:' . PHP_EOL .
+            'curl -s http://getcomposer.org/installer | php' . PHP_EOL .
+            'php composer.phar install' . PHP_EOL
+    );
 }
 
 // Load resque-scheduler
