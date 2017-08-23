@@ -10,7 +10,7 @@
 		}
 	],
 	"bin": [
-		"bin/resque"
+		"bin/resque_scheduler"
 	],
 	"autoload": {
 		"psr-0": {
