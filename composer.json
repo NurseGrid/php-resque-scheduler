@@ -3,6 +3,12 @@
 	"type": "library",
 	"description": "php-resque-scheduler is a PHP port of resque-scheduler, which adds support for scheduling items in the future to Resque.",
 	"license": "MIT",
+	"repositories": [
+         {
+             "type": "git",
+             "url": "https://github.com/NurseGrid/php-resque.git"
+         }
+        ],
 	"authors": [
 		{
 			"name": "Chris Boulton",
